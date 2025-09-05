@@ -1,31 +1,108 @@
-<div class="container">
-    <div class="currency-container">
-      <h1>Currency converter</h1>
-      <div class="input-box">
-        <label for="amount">Enter amount</label>
-        <input type="text" id="amount" placeholder="100"  required/>
-      </div>
-      <div class="currency">
-        <div class="box">
-          <select
-            class="select-option"
-            name="from-currency"
-            id="fromCurrency"
-          >
-            <option value="USD">United States Dollar</option>
-          </select>
-        </div>
-        <div>
-          <span>TO</span>
-        </div>
-        <div class="box">
-          <select class="select-option" name="to-currency" id="toCurrency">
-            <option value="USD">United States Dollar</option>
-          </select>
-        </div>
-        <button class="convert">Convert</button>
-        <p class="result"></p>
-        <p class="error"></p>
-      </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Currency Converter</title>
+    <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        
+        .container {
+            width: 300px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 5px;
+            border-radius: 5px;
+            border: none;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        #result {
+          text-align:center;  
+          font-weight:bold;  
+          font-size:x-large;  
+          margin-top :20px; 
+          color:#4CAF50; 
+      }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Currency Converter</h1>
+
+        <div class="input-group">
+           <label for="amount">Amount:</label>
+           <input type="number" id="amount" placeholder="Enter amount">
+       </div>
+
+       <div class="input-group">
+           <label for="from">From:</label>
+           <select id="from">
+               <option value="USD">USD</option>
+               <option value="EUR">EUR</option>
+               <option value="GBP">GBP</option>
+           </select>
+       </div>
+
+       <div class="input-group">
+           <label for="to">To:</label>
+           <select id="to">
+               <option value="USD">USD</option>
+               <option value="EUR">EUR</option>
+               <option value="GBP">GBP</option>
+           </select>
+       </div>
+
+       <button class="btn" onclick="convert()">Convert</button>
+
+       <div id="result"></div>
+
     </div>
-  </div>
+
+    <script>
+        function convert() {
+            var amount = document.getElementById("amount").value;
+            var from = document.getElementById("from").value;
+            var to = document.getElementById("to").value;
+
+            // Perform currency conversion calculation here
+            // Replace the following line with your own logic
+            var result = amount * 0.85;
+
+            document.getElementById("result").innerHTML = amount + " " + from + " is equal to " + result.toFixed(2) + " " + to;
+        }
+    </script>
+</body>
+</html>
